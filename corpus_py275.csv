@@ -1,0 +1,276 @@
+,text,label
+0,import pandas as pd,3
+1,"df = pd.read_csv('./data/lunch_box.csv', sep=',')",3
+2,df.head(3),3
+3,df.head(),3
+4,df.tail(),3
+5,df.shape,3
+6,df.index,3
+7,df.columns,3
+8,df.dtypes,3
+9,"df[['name', 'kcal']].head()",3
+10,df[100:106],3
+11,df.loc[100],3
+12,"df.iloc[[1,2,4],[0,2]]",3
+13,df[df['kcal'] > 450],3
+14,"df[['name', 'kcal']].query('kcal > 450 and name == ""豚肉の生姜焼""')",3
+15,df['remarks'].unique(),3
+16,df.drop_duplicates(),3
+17,df.describe(),3
+18,"df.set_index('datetime', inplace=True)",3
+19,"df.rename(columns={'y': 'sales'}, inplace=True)",3
+20,"df.sort_values(by=""sales"", ascending=True).head()",3
+21,"df.sort_values(['sales', 'temperature'], ascending=False).head()",3
+22,"df.index = pd.to_datetime(df.index, format='%Y-%m-%d')",3
+23,df.isnull().sum(),3
+24,df[df.isnull().any(axis=1)].head(),3
+25,df[df.isnull().any(axis=1)].shape,3
+26,"df.fillna(value={'payday': 0.0}, inplace=True)",3
+27,"df.dropna(subset=['kcal'], axis=0, inplace=True)",3
+28,"df['precipitation'] = df['precipitation'].str.replace('--', 0).astype(float)",3
+29,"pd.DataFrame(df['sales'].mask(df['sales'] > 80, 100)).head()",3
+30,"df.drop(['remarks'], axis=1, inplace=True)",3
+31,df['weather'].value_counts(),3
+32,df.groupby(['week'])['soldout'].count(),3
+33,"df.groupby(['month', 'period'])['sales'].sum()",3
+34,df.groupby(['weather'])['temperature'].mean(),3
+35,df['temperature_diff'] = df['temperature'].diff(periods=1),3
+36,"df[['temperature','temperature_diff']].head()",3
+37,df['temperature_rolling_mean'] = df['temperature'].rolling(window=3).mean(),3
+38,"df.dropna(subset=['temperature_diff', 'temperature_rolling_mean', 'temperature_pct_change'], axis=0, inplace=True)",3
+39,import matplotlib.pyplot as plt,3
+40,df['sales'].plot(),3
+41,"df.plot(y=['temperature', 'temperature_rolling_mean', 'temperature_pct_change'], figsize=(16,4), alpha=0.5)",3
+42,plt.title('figure'),3
+43,"df.plot(kind='hist', y='sales' , bins=10, figsize=(16,4), alpha=0.5)",3
+44,"df.plot(kind='scatter', x='kcal', y='sales')",3
+45,"df[['kcal', 'sales']].corr()",3
+46,"pivot_monthly_df.plot(kind='bar', alpha=0.6, figsize=(12,3))",3
+47,"dummy_df = pd.get_dummies(df, columns=['week', 'name', 'event', 'weather', 'period'])",3
+48,"pd.set_option('display.max_columns', 160)",3
+49,"dummy_df.to_csv('./data/processed_datamart.csv', encoding='utf-8')",3
+50,"plt.plot(x, y, label=""test"")",3
+51,plt.legend(),3
+52,plt.show(),3
+53,"plt.plot(x, y, color=(0,0,1))",3
+54,"plt.plot(x, y, color=""#0F0F0F"")",3
+55,"plt.savefig(""foo.png"")",3
+56,import numpy as np,3
+57,import numpy.random as random,3
+58,import scipy as sp,3
+59,"from pandas import Series, DataFrame",3
+60,import matplotlib.pyplot as plt,3
+61,import matplotlib as mpl,3
+62,import seaborn as sns,3
+63,sns.set(),3
+64,random.seed(0),3
+65,plt.title('Title Name'),3
+66,plt.xlabel('X'),3
+67,plt.ylabel('Y'),3
+68,plt.grid(True),3
+69,"plt.figure(figsize=(20, 6))",3
+70,"plt.subplot(2,1,1)",3
+71,"plt.subplot(2,1,2)",3
+72,"plt.bar(x, y, align='center', width = 0.5)",3
+73,"plt.xticks(x, ['A Class', 'B Class', 'C Class'])",3
+74,"plt.barh(x, y, align = 'center')",3
+75,"plt.yticks(x, ['A Class','B Class','C Class'])",3
+76,plt.legend(loc = 'best'),3
+77,from sklearn import linear_model,3
+78,student_data_math = pd.read_csv('student-mat.csv'),3
+79,plt.hist(student_data_math['absences']),3
+80,import pandas as pd,3
+81,"df = pd.read_csv('./data/lunch_box.csv', sep=',')",3
+82,df.head(3),3
+83,df.head(),3
+84,df.tail(),3
+85,df.shape,3
+86,df.index,3
+87,df.columns,3
+88,df.dtypes,3
+89,"df[['name', 'kcal']].head()",3
+90,df[100:106],3
+91,df.loc[100],3
+92,"df.iloc[[1,2,4],[0,2]]",3
+93,df[df['kcal'] > 450],3
+94,"df[['name', 'kcal']].query('kcal > 450 and name == ""豚肉の生姜焼""')",3
+95,df['remarks'].unique(),3
+96,df.drop_duplicates(),3
+97,df.describe(),3
+98,"df.set_index('datetime', inplace=True)",3
+99,"df.rename(columns={'y': 'sales'}, inplace=True)",3
+100,"df.sort_values(by=""sales"", ascending=True).head()",3
+101,"df.sort_values(['sales', 'temperature'], ascending=False).head()",3
+102,"df.index = pd.to_datetime(df.index, format='%Y-%m-%d')",3
+103,df.isnull().sum(),3
+104,df[df.isnull().any(axis=1)].head(),3
+105,df[df.isnull().any(axis=1)].shape,3
+106,"df.fillna(value={'payday': 0.0}, inplace=True)",3
+107,"df.dropna(subset=['kcal'], axis=0, inplace=True)",3
+108,"df['precipitation'] = df['precipitation'].str.replace('--', 0).astype(float)",3
+109,"pd.DataFrame(df['sales'].mask(df['sales'] > 80, 100)).head()",3
+110,"df.drop(['remarks'], axis=1, inplace=True)",3
+111,df['weather'].value_counts(),3
+112,df.groupby(['week'])['soldout'].count(),3
+113,"df.groupby(['month', 'period'])['sales'].sum()",3
+114,df.groupby(['weather'])['temperature'].mean(),3
+115,df['temperature_diff'] = df['temperature'].diff(periods=1),3
+116,"df[['temperature','temperature_diff']].head()",3
+117,df['temperature_rolling_mean'] = df['temperature'].rolling(window=3).mean(),3
+118,"df.dropna(subset=['temperature_diff', 'temperature_rolling_mean', 'temperature_pct_change'], axis=0, inplace=True)",3
+119,import matplotlib.pyplot as plt,3
+120,df['sales'].plot(),3
+121,"df.plot(y=['temperature', 'temperature_rolling_mean', 'temperature_pct_change'], figsize=(16,4), alpha=0.5)",3
+122,plt.title('figure'),3
+123,"df.plot(kind='hist', y='sales' , bins=10, figsize=(16,4), alpha=0.5)",3
+124,"df.plot(kind='scatter', x='kcal', y='sales')",3
+125,"df[['kcal', 'sales']].corr()",3
+126,"pivot_monthly_df.plot(kind='bar', alpha=0.6, figsize=(12,3))",3
+127,"dummy_df = pd.get_dummies(df, columns=['week', 'name', 'event', 'weather', 'period'])",3
+128,"pd.set_option('display.max_columns', 160)",3
+129,"dummy_df.to_csv('./data/processed_datamart.csv', encoding='utf-8')",3
+130,"plt.plot(x, y, label=""test"")",3
+131,plt.legend(),3
+132,plt.show(),3
+133,"plt.plot(x, y, color=(0,0,1))",3
+134,"plt.plot(x, y, color=""#0F0F0F"")",3
+135,"plt.savefig(""foo.png"")",3
+136,import numpy as np,3
+137,import numpy.random as random,3
+138,import scipy as sp,3
+139,"from pandas import Series, DataFrame",3
+140,import matplotlib.pyplot as plt,3
+141,import matplotlib as mpl,3
+142,import seaborn as sns,3
+143,sns.set(),3
+144,random.seed(0),3
+145,plt.title('Title Name'),3
+146,plt.xlabel('X'),3
+147,plt.ylabel('Y'),3
+148,plt.grid(True),3
+149,"plt.figure(figsize=(20, 6))",3
+150,"plt.subplot(2,1,1)",3
+151,"plt.subplot(2,1,2)",3
+152,from sklearn import linear_model,3
+153,import pandas as pd,3
+154,"df = pd.read_csv('./data/lunch_box.csv', sep=',')",3
+155,df.head(3),3
+156,df.head(),3
+157,df.tail(),3
+158,df.shape,3
+159,df.index,3
+160,df.columns,3
+161,df.dtypes,3
+162,"df[['name', 'kcal']].head()",3
+163,df[100:106],3
+164,df.loc[100],3
+165,"df.iloc[[1,2,4],[0,2]]",3
+166,df[df['kcal'] > 450],3
+167,"df[['name', 'kcal']].query('kcal > 450 and name == ""豚肉の生姜焼""')",3
+168,df['remarks'].unique(),3
+169,df.drop_duplicates(),3
+170,df.describe(),3
+171,"df.set_index('datetime', inplace=True)",3
+172,"df.rename(columns={'y': 'sales'}, inplace=True)",3
+173,"df.sort_values(by=""sales"", ascending=True).head()",3
+174,"df.sort_values(['sales', 'temperature'], ascending=False).head()",3
+175,"df.index = pd.to_datetime(df.index, format='%Y-%m-%d')",3
+176,df.isnull().sum(),3
+177,df[df.isnull().any(axis=1)].head(),3
+178,df[df.isnull().any(axis=1)].shape,3
+179,"df.fillna(value={'payday': 0.0}, inplace=True)",3
+180,"df.dropna(subset=['kcal'], axis=0, inplace=True)",3
+181,"df['precipitation'] = df['precipitation'].str.replace('--', 0).astype(float)",3
+182,"pd.DataFrame(df['sales'].mask(df['sales'] > 80, 100)).head()",3
+183,"df.drop(['remarks'], axis=1, inplace=True)",3
+184,df['weather'].value_counts(),3
+185,df.groupby(['week'])['soldout'].count(),3
+186,"df.groupby(['month', 'period'])['sales'].sum()",3
+187,df.groupby(['weather'])['temperature'].mean(),3
+188,"df[['temperature','temperature_diff']].head()",3
+189,df['temperature_rolling_mean'] = df['temperature'].rolling(window=3).mean(),3
+190,"df.dropna(subset=['temperature_diff', 'temperature_rolling_mean', 'temperature_pct_change'], axis=0, inplace=True)",3
+191,import matplotlib.pyplot as plt,3
+192,df['sales'].plot(),3
+193,"df.plot(y=['temperature', 'temperature_rolling_mean', 'temperature_pct_change'], figsize=(16,4), alpha=0.5)",3
+194,plt.title('figure'),3
+195,"df.plot(kind='hist', y='sales' , bins=10, figsize=(16,4), alpha=0.5)",3
+196,"df.plot(kind='scatter', x='kcal', y='sales')",3
+197,"df[['kcal', 'sales']].corr()",3
+198,"dummy_df = pd.get_dummies(df, columns=['week', 'name', 'event', 'weather', 'period'])",3
+199,"dummy_df.to_csv('./data/processed_datamart.csv', encoding='utf-8')",3
+200,"plt.plot(x, y, label=""test"")",3
+201,plt.legend(),3
+202,plt.show(),3
+203,"plt.plot(x, y, color=(0,0,1))",3
+204,"plt.plot(x, y, color=""#0F0F0F"")",3
+205,"plt.savefig(""foo.png"")",3
+206,import numpy as np,3
+207,import numpy.random as random,3
+208,import scipy as sp,3
+209,"from pandas import Series, DataFrame",3
+210,import matplotlib.pyplot as plt,3
+211,import matplotlib as mpl,3
+212,import seaborn as sns,3
+213,sns.set(),3
+214,random.seed(0),3
+215,plt.title('Title Name'),3
+216,plt.xlabel('X'),3
+217,plt.ylabel('Y'),3
+218,plt.grid(True),3
+219,"plt.figure(figsize=(20, 6))",3
+220,"plt.subplot(2,1,1)",3
+221,"plt.subplot(2,1,2)",3
+222,"plt.bar(x, y, align='center', width = 0.5)",3
+223,"plt.xticks(x, ['A Class', 'B Class', 'C Class'])",3
+224,"plt.barh(x, y, align = 'center')",3
+225,"plt.yticks(x, ['A Class','B Class','C Class'])",3
+226,plt.legend(loc = 'best'),3
+227,from sklearn import linear_model,3
+228,student_data_math = pd.read_csv('student-mat.csv'),3
+229,plt.hist(student_data_math['absences']),3
+230,student_data_math['absences'].median(),3
+231,student_data_math['absences'].mode(),3
+232,student_data_math['absences'].var(),3
+233,student_data_math['absences'].std(),3
+234,student_data_math['absences'].describe(),3
+235,plt.boxplot(student_data_math['G1']),3
+236,"plt.boxplot([student_data_math['G1'], student_data_math['G2'], student_data_math['G3']])",3
+237,"plt.plot(student_data_math['G1'], student_data_math['G3'], 'o')",3
+238,"np.cov(student_data_math['G1'], student_data_math['G3'])",3
+239,"sp.stats.pearsonr(student_data_math['G1'], student_data_math['G3'])",3
+240,"np.corrcoef([student_data_math['G1'], student_data_math['G3']])",3
+241,"sns.pairplot(student_data_math[['Dalc', 'Walc', 'G1', 'G3']])",3
+242,reg = linear_model.LinearRegression(),3
+243,reg.coef_,3
+244,reg.intercept_,3
+245,"plt.plot(X, reg.predict(X))",3
+246,"reg.score(X, Y)",3
+247,"auto = auto[['price', 'horsepower', 'width', 'height']]",3
+248,auto.isin(['?']).sum(),3
+249,"auto = auto.replace('?', np.nan).dropna()",3
+250,auto = auto.assign(price=pd.to_numeric(auto.price)),3
+251,from sklearn.linear_model import LinearRegression,3
+252,"X = auto.drop('price', axis=1)",3
+253,import sklearn,3
+254,adult.groupby('flg-50K').size(),3
+255,from sklearn.linear_model import LogisticRegression,3
+256,from sklearn.linear_model import Ridge,3
+257,import pandas as pd,3
+258,"df = pd.read_csv('./data/lunch_box.csv', sep=',')",3
+259,df.head(3),3
+260,df.head(),3
+261,df.tail(),3
+262,df.shape,3
+263,df.index,3
+264,df.columns,3
+265,df.dtypes,3
+266,import pandas as pd,3
+267,"df = pd.read_csv('./data/lunch_box.csv', sep=',')",3
+268,df.head(3),3
+269,df.head(),3
+270,df.tail(),3
+271,df.shape,3
+272,df.index,3
+273,df.columns,3
+274,"df[['name', 'kcal']].head()",3
