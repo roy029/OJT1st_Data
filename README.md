@@ -5,5 +5,5 @@ OJTでの言語モデル班 言語分類用のコーパス置き場です
 - 英語：1
 - 日本語：2
 - python：3
-- Javascript：4
+- Java(script)：4
 - ロシア語：5
